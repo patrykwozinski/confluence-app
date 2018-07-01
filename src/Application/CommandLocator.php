@@ -34,8 +34,6 @@ final class CommandLocator
 
     public function addHandler(CommandHandlerInterface $commandHandler): void
     {
-        dd('KURWA');
-
         $this->handlers[] = $commandHandler;
     }
 }
