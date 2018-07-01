@@ -5,11 +5,12 @@
  * Date: 01.07.2018
  * Time: 19:06
  */
+declare(strict_types=1);
 
 namespace App\Application\Exception;
 
 
-use App\Application\CommandInterface;
+use App\Application\Command\CommandInterface;
 use Exception;
 
 final class HandlerNotFoundException extends Exception

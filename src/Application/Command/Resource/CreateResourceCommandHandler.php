@@ -7,11 +7,11 @@
  */
 declare(strict_types=1);
 
-namespace App\Application\Resource\Command;
+namespace App\Application\Command\Resource;
 
 
-use App\Application\AbstractCommandHandler;
-use App\Application\CommandInterface;
+use App\Application\Command\AbstractCommandHandler;
+use App\Application\Command\CommandInterface;
 
 class CreateResourceCommandHandler extends AbstractCommandHandler
 {

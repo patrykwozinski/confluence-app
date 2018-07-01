@@ -10,17 +10,14 @@ declare(strict_types=1);
 namespace App\Application;
 
 
+use App\Application\Command\CommandHandlerInterface;
+use App\Application\Command\CommandInterface;
 use App\Application\Exception\HandlerNotFoundException;
 
 final class CommandLocator
 {
     /** @var CommandHandlerInterface[] */
     private $handlers = [];
-
-    public function addHandler(CommandHandlerInterface $commandHandler): void
-    {
-        $this->handlers[] = $commandHandler;
-    }
 
     public function getHandlerForCommand(CommandInterface $command): CommandHandlerInterface
     {
@@ -33,5 +30,12 @@ final class CommandLocator
         }
 
         throw HandlerNotFoundException::forCommand($command);
+    }
+
+    public function addHandler(CommandHandlerInterface $commandHandler): void
+    {
+        dd('KURWA');
+
+        $this->handlers[] = $commandHandler;
     }
 }

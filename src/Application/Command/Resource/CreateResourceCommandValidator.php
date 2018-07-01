@@ -7,11 +7,11 @@
  */
 declare(strict_types=1);
 
-namespace App\Application\Resource\Command;
+namespace App\Application\Command\Resource;
 
 
-use App\Application\CommandInterface;
-use App\Application\CommandValidatorInterface;
+use App\Application\Command\CommandInterface;
+use App\Application\Command\CommandValidatorInterface;
 
 final class CreateResourceCommandValidator implements CommandValidatorInterface
 {
