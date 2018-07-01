@@ -7,11 +7,11 @@
  */
 declare(strict_types=1);
 
-namespace App\Application\Command\Resource;
+namespace App\Application\Resource\Command;
 
 
-use App\Application\Command\AbstractCommandHandler;
-use App\Application\Command\CommandInterface;
+use App\Application\AbstractCommandHandler;
+use App\Application\CommandInterface;
 
 class DeleteResourceCommandHandler extends AbstractCommandHandler
 {

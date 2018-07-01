@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Application\DataTransferObject;
+namespace App\Application\Resource;
 
 
 final class ResourceDTO

@@ -10,8 +10,6 @@ declare(strict_types=1);
 namespace App\Application;
 
 
-use App\Application\Command\CommandInterface;
-
 final class CommandBus
 {
     /** @var CommandLocator */

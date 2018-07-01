@@ -10,8 +10,6 @@ declare(strict_types=1);
 namespace App\Application;
 
 
-use App\Application\Command\CommandHandlerInterface;
-use App\Application\Command\CommandInterface;
 use App\Application\Exception\HandlerNotFoundException;
 
 final class CommandLocator

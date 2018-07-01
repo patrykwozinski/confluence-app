@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Application\Command;
+namespace App\Application;
 
 
 abstract class AbstractCommandHandler implements CommandHandlerInterface

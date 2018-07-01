@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace App\Application\Exception;
 
 
-use App\Application\Command\CommandInterface;
+use App\Application\CommandInterface;
 
 final class HandlerNotFoundException extends AbstractApplicationException
 {

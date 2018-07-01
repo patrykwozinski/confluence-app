@@ -11,7 +11,7 @@ namespace App\UserInterface\Http\Action\Homepage;
 
 
 use App\Application\CommandBus;
-use App\Application\Command\Resource\DeleteResourceCommand;
+use App\Application\Resource\Command\DeleteResourceCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
