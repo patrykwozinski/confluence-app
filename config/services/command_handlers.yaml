@@ -1,0 +1,9 @@
+services:
+    create_resource.command_handler:
+        class: App\Application\Resource\Command\CreateResourceCommandHandler
+        calls:
+            - method: addValidator
+              arguments:
+                  - '@create_resource.command_validator'
+        tags:
+            - { name: command_handler }

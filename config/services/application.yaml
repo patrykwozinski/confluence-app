@@ -1,0 +1,11 @@
+imports:
+    - { resource: 'command_handlers.yaml' }
+    - { resource: 'command_validators.yaml' }
+
+services:
+    command_bus:
+        class: App\Application\CommandBus
+        arguments: ['@command_locator']
+
+    command_locator:
+        class: App\Application\CommandLocator

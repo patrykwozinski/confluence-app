@@ -12,7 +12,8 @@
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1"
+        "symfony/dotenv": "^4.1",
+        "symfony/phpunit-bridge": "*"
     },
     "config": {
         "preferred-install": {
@@ -27,7 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "replace": {

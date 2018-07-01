@@ -1,0 +1,5 @@
+services:
+    create_resource.command_validator:
+        class: App\Application\Resource\Command\CreateResourceCommandValidator
+        tags:
+            - { name: command_validator }

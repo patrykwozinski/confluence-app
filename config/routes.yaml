@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+homepage.get:
+    path: /
+    controller: App\UserInterface\Http\Action\Homepage\GetHomepageAction
