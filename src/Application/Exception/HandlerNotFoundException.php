@@ -11,9 +11,8 @@ namespace App\Application\Exception;
 
 
 use App\Application\Command\CommandInterface;
-use Exception;
 
-final class HandlerNotFoundException extends Exception
+final class HandlerNotFoundException extends AbstractApplicationException
 {
     public static function forCommand(CommandInterface $command): self
     {
