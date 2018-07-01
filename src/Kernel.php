@@ -50,13 +50,7 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/{services}'.self::CONFIG_EXTS, 'glob');
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
 
-        $container->addCompilerPass(
-            new RegisterHandlerCompilerPass(
-                'command_locator',
-                'command_handler',
-                'addHandler'
-            )
-        );
+        $this->processCustomCompilers($container);
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes)
@@ -66,5 +60,16 @@ class Kernel extends BaseKernel
         $routes->import($confDir.'/{routes}/*'.self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir.'/{routes}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir.'/{routes}'.self::CONFIG_EXTS, '/', 'glob');
+    }
+
+    private function processCustomCompilers(ContainerBuilder $container): void
+    {
+        $container->addCompilerPass(
+            new RegisterHandlerCompilerPass('command_handler_locator', 'command_handler')
+        );
+
+        $container->addCompilerPass(
+            new RegisterHandlerCompilerPass('event_handler_locator', 'event_handler')
+        );
     }
 }

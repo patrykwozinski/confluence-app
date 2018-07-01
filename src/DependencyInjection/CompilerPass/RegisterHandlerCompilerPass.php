@@ -8,23 +8,17 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class RegisterHandlerCompilerPass implements CompilerPassInterface
 {
-    private const DEFAULT_METHOD = 'addItem';
+    private const METHOD = 'addHandler';
     private const HANDLES = 'handles';
 
     private $serviceDefinition;
 
     private $itemTag;
 
-    private $method;
-
-    public function __construct(
-        string $serviceDefinition,
-        string $itemTag,
-        string $method = self::DEFAULT_METHOD
-    ) {
+    public function __construct(string $serviceDefinition, string $itemTag)
+    {
         $this->serviceDefinition = $serviceDefinition;
         $this->itemTag = $itemTag;
-        $this->method = $method;
     }
 
     public function process(ContainerBuilder $container): void
@@ -48,7 +42,7 @@ class RegisterHandlerCompilerPass implements CompilerPassInterface
                     }
                 }
 
-                $serviceDefinition->addMethodCall($this->method, [new Reference($id), $handles]);
+                $serviceDefinition->addMethodCall(self::METHOD, [new Reference($id), $handles]);
             }
         }
     }
