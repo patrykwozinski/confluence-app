@@ -12,17 +12,17 @@ namespace App\Application;
 
 final class CommandBus
 {
-    /** @var CommandLocator */
-    private $commandLocator;
+    /** @var CommandHandlerLocator */
+    private $commandHandlerLocator;
 
-    public function __construct(CommandLocator $commandLocator)
+    public function __construct(CommandHandlerLocator $commandHandlerLocator)
     {
-        $this->commandLocator = $commandLocator;
+        $this->commandHandlerLocator = $commandHandlerLocator;
     }
 
     public function handle(CommandInterface $command): void
     {
-        $commandHandler = $this->commandLocator->getHandlerForCommand($command);
+        $commandHandler = $this->commandHandlerLocator->getHandlerForCommand($command);
 
         $commandHandler->handle($command);
     }

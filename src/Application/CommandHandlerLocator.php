@@ -12,7 +12,7 @@ namespace App\Application;
 
 use App\Application\Exception\HandlerNotFoundException;
 
-final class CommandLocator
+final class CommandHandlerLocator
 {
     /** @var CommandHandlerInterface[] */
     private $handlers = [];

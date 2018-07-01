@@ -11,5 +11,5 @@ namespace App\Domain;
 
 interface DomainEventInterface
 {
-    public function getName(): string;
+    public function getEventName(): string;
 }

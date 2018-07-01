@@ -30,7 +30,7 @@ final class ResourceBookedEvent implements DomainEventInterface
         return $this->resource;
     }
 
-    public function getName(): string
+    public function getEventName(): string
     {
         return self::EVENT_NAME;
     }

@@ -1,11 +1,19 @@
 imports:
     - { resource: 'command_handlers.yaml' }
+    - { resource: 'event_handlers.yaml' }
     - { resource: 'command_validators.yaml' }
 
 services:
-    command_locator:
-        class: App\Application\CommandLocator
+    command_handler_locator:
+        class: App\Application\CommandHandlerLocator
+
+    event_handler_locator:
+        class: App\Application\EventHandlerLocator
 
     command_bus:
         class: App\Application\CommandBus
-        arguments: ['@command_locator']
+        arguments: ['@command_handler_locator']
+
+    event_bus:
+        class: App\Application\EventBus
+        arguments: ['@event_handler_locator']
