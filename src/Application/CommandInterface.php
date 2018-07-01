@@ -12,4 +12,5 @@ namespace App\Application;
 
 interface CommandInterface
 {
+    public function getCommandName(): string;
 }

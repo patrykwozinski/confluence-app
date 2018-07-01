@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\DependencyInjection\CompilerPass\RegisterItemCompilerPass;
+use App\DependencyInjection\CompilerPass\RegisterHandlerCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -51,7 +51,7 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
 
         $container->addCompilerPass(
-            new RegisterItemCompilerPass(
+            new RegisterHandlerCompilerPass(
                 'command_locator',
                 'command_handler',
                 'addHandler'

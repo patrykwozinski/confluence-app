@@ -14,6 +14,9 @@ use App\Application\CommandInterface;
 
 final class DeleteResourceCommand implements CommandInterface
 {
+    private const COMMAND_NAME = 'delete_resource';
+
+    /** @var int */
     private $id;
 
     public function __construct(int $id)
@@ -24,5 +27,10 @@ final class DeleteResourceCommand implements CommandInterface
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getCommandName(): string
+    {
+        return self::COMMAND_NAME;
     }
 }

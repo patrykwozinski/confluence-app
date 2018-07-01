@@ -4,9 +4,9 @@ services:
         calls:
             - [addValidator, ['@create_resource.command_validator']]
         tags:
-            - { name: command_handler }
+            - { name: command_handler, handles: create_resource }
 
     delete_resource.command_handler:
         class: App\Application\Resource\Command\DeleteResourceCommandHandler
         tags:
-            - { name: command_handler }
+            - { name: command_handler, handles: delete_resource }

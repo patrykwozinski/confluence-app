@@ -6,9 +6,10 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class RegisterItemCompilerPass implements CompilerPassInterface
+class RegisterHandlerCompilerPass implements CompilerPassInterface
 {
     private const DEFAULT_METHOD = 'addItem';
+    private const HANDLES = 'handles';
 
     private $serviceDefinition;
 
@@ -32,15 +33,23 @@ class RegisterItemCompilerPass implements CompilerPassInterface
             $container->hasDefinition($this->serviceDefinition) ||
             $container->hasAlias($this->serviceDefinition)
         ) {
-            $arguments = [];
             $serviceDefinition = $container->findDefinition($this->serviceDefinition);
 
             foreach ($container->findTaggedServiceIds($this->itemTag) as $id => $tagsCollection)
             {
-                $arguments[] = new Reference($id);
-            }
+                $handles = null;
 
-            $serviceDefinition->addMethodCall($this->method, $arguments);
+                foreach ($tagsCollection as $tag)
+                {
+                    if (isset($tag[self::HANDLES]))
+                    {
+                        $handles = $tag[self::HANDLES];
+                        break;
+                    }
+                }
+
+                $serviceDefinition->addMethodCall($this->method, [new Reference($id), $handles]);
+            }
         }
     }
 }

@@ -19,19 +19,18 @@ final class CommandLocator
 
     public function getHandlerForCommand(CommandInterface $command): CommandHandlerInterface
     {
-        foreach ($this->handlers as $handler)
+        $commandName = $command->getCommandName();
+
+        if (empty($this->handlers[$commandName]))
         {
-            if ($handler->supports($command))
-            {
-                return $handler;
-            }
+            throw HandlerNotFoundException::forCommand($command);
         }
 
-        throw HandlerNotFoundException::forCommand($command);
+        return $this->handlers[$commandName];
     }
 
-    public function addHandler(CommandHandlerInterface $commandHandler): void
+    public function addHandler(CommandHandlerInterface $commandHandler, string $handles): void
     {
-        $this->handlers[] = $commandHandler;
+        $this->handlers[$handles] = $commandHandler;
     }
 }

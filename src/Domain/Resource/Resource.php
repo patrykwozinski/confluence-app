@@ -12,5 +12,18 @@ namespace App\Domain\Resource;
 
 final class Resource
 {
+    /** @var string */
+    private $name;
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 }

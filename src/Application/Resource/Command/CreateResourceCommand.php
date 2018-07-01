@@ -14,6 +14,9 @@ use App\Application\CommandInterface;
 
 final class CreateResourceCommand implements CommandInterface
 {
+    private const COMMAND_NAME = 'create_resource';
+
+    /** @var string */
     private $resourceName;
 
     public function __construct(string $resourceName)
@@ -24,5 +27,10 @@ final class CreateResourceCommand implements CommandInterface
     public function getResourceName(): string
     {
         return $this->resourceName;
+    }
+
+    public function getCommandName(): string
+    {
+        return self::COMMAND_NAME;
     }
 }
